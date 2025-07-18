@@ -1,35 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import Login from "./pages/Login";
+import AdminDashboard from "./pages/AdminDashboard";
+import Sales from "./pages/Sales";
+import Inventory from "./pages/Inventory";
+import Cashier from "./pages/Cashier"; // Placeholder for future implementation
+import CashierDashboard from "./pages/CashierDashboard";
+import Products from "./pages/Products";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<Login />} />
+                <Route path="/admin/dashboard" element={<AdminDashboard />} />
+                <Route path="/admin/sales" element={<Sales />} />
+                {/* <Route path="/admin/inventory" element={<div>Inventory Page (TBD)</div>} /> */}
+                <Route path="/admin/inventory" element={<Inventory />} />
+                <Route path="/admin/cashiers" element={<Cashier />} />
+                <Route path="/admin/marketing" element={<div>Marketing Page (TBD)</div>} />
+                <Route path="/admin/reports" element={<div>Reports Page (TBD)</div>} />
+                <Route path="/admin/help" element={<div>Help Page (TBD)</div>} />
+                <Route path="/cashier/dashboard" element={<CashierDashboard />} />
+                <Route path="/cashier/transactions" element={<div>Transactions Page (TBD)</div>} />
+                <Route path="/cashier/payments" element={<div>Payments Page (TBD)</div>} />
+                <Route path="/cashier/products" element={<Products />} />
+            </Routes>
+        </Router>
+    );
+};
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
-
-export default App
+export default App;
