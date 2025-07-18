@@ -16,6 +16,7 @@ const SideNav = ({userType}) => {
         {to: "/cashier/dashboard", label: "Dashboard", icon: "Layout"},
         {to: "/cashier/transactions", label: "Transactions", icon: "CurrencyDollar"},
         {to: "/cashier/payments", label: "Payments", icon: "Package"},
+        {to: "/cashier/products", label: "Products", icon: "Package"},
     ];
 
     const links = userType === "admin" ? adminLinks : cashierLinks;
